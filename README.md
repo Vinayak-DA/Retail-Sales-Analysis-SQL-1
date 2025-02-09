@@ -40,27 +40,27 @@ The dataset contains retail sales transactions with the following attributes:
 
 transaction_id: Unique transaction identifier
 
-sale_date: Date of the sale
+sale_date: **Date of the sale**
 
-sale_time: Time of the sale
+sale_time: **Time of the sale**
 
-customer_id: Unique customer identifier
+customer_id: **Unique customer identifier**
 
-gender: Gender of the customer
+gender: **Gender of the customer**
 
-age: Customer's age
+age: **Customer's age**
 
-category: Product category (e.g., Clothing, Beauty, Electronics)
+category: **Product category (e.g., Clothing, Beauty, Electronics)
+**
+quantity: **Number of units sold**
 
-quantity: Number of units sold
+price_per_unit: **Price per unit**
 
-price_per_unit: Price per unit
+cogs: **Cost of goods sold**
 
-cogs: Cost of goods sold
+total_sale: **Total sales amount**
 
-total_sale: Total sales amount
-
-🔎 Business Questions & SQL Queries
+🔎 Business Questions which are answered seperatlty in SQL file
 
 1️⃣ Data Cleaning & Exploration
 
@@ -72,49 +72,16 @@ Counted total transactions and unique customers
 
 2️⃣ Key Business Questions Answered
 
-Question
-
-SQL Query Summary
-
-Retrieve all sales made on a specific date
-
-WHERE sale_date = '2022-11-05'
-
-Find all transactions where category is 'Clothing' & quantity > 4 (Nov 2022)
-
-WHERE category = 'Clothing' AND quantity >= 4
-
-Calculate total sales for each category
-
-SUM(total_sale) GROUP BY category
-
-Find the average age of customers buying 'Beauty' products
-
-AVG(age) WHERE category = 'Beauty'
-
-Identify transactions with total sales above 1000
-
-WHERE total_sale > 1000
-
-Count total transactions by gender in each category
-
-COUNT(*) GROUP BY category, gender
-
-Find the best-selling month each year based on average sales
-
-RANK() OVER(PARTITION BY year ORDER BY AVG(total_sale) DESC)
-
-Identify the top 5 customers based on highest total sales
-
-SUM(total_sale) GROUP BY customer_id ORDER BY total_sale DESC LIMIT 5
-
-Find unique customers per category
-
-COUNT(DISTINCT customer_id) GROUP BY category
-
-Categorize transactions into shifts (Morning, Afternoon, Evening)
-
-CASE WHEN sale_time < 12 THEN 'Morning' ...
+-- Q.1 Write a SQL query to retrieve all columns for sales made on '2022-11-05'
+-- Q.2 Write a SQL query to retrieve all transactions where the category is 'Clothing' and the quantity sold is more than 10 in the month of Nov-2022
+-- Q.3 Write a SQL query to calculate each category's total sales (total_sale).
+-- Q.4 Write a SQL query to find the average age of customers who purchased items from the 'Beauty' category.
+-- Q.5 Write a SQL query to find all transactions where the total_sale exceeds 1000.
+-- Q.6 Write a SQL query to find the total number of transactions (transaction_id) made by each gender in each category.
+-- Q.7 Write a SQL query to calculate the average sale for each month. Find out best selling month in each year
+-- Q.8 Write a SQL query to find the top 5 customers based on the highest total sales 
+-- Q.9 Write a SQL query to find the number of unique customers who purchased items from each category.
+-- Q.10 Write a SQL query to create each shift and number of orders (Example Morning <=12, Afternoon Between 12 & 17, Evening >17)
 
 📊 Insights Gained
 
